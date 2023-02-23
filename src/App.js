@@ -5,19 +5,44 @@ import Container from './components/container';
 
 export const allProducts = gql`
   query Products {
-    products(first: 20, channel: "uk") {
+    products(first: 1, channel: "uk") {
       edges {
         node {
-          name
           id
+          thumbnail {
+            url
+            alt
+          }
+          media {
+            url
+            alt
+          }
+          name
+          category {
+            name
+          }
+          pricing {
+            onSale
+          }
+          pricing {
+            priceRange {
+              stop {
+                gross {
+                  amount
+                }
+              }
+            }
+          }
+          isAvailable
           weight {
             value
-            unit
-          }            
+            unit           
         }
+        seoDescription
       }
     }
   }
+}
 `;
 
 

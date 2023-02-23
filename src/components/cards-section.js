@@ -15,14 +15,20 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding: 40px 20px;
+  padding: 40px 55px;
   border-radius: 8px;
   background: var(--light-grey);
 `;
 
 const Name = styled.div`
-  font-size: 1.2rem;
+  font-size: 2rem;
   text-transform: uppercase;
+  font-family: 'Covered By Your Grace', cursive;
+`;
+
+const PriceWeightWrapper = styled.div`
+  display: flex;
+  gap: 80px;
 `;
 
 const WeightWrapper = styled.div`
@@ -32,6 +38,11 @@ const WeightWrapper = styled.div`
 
 const Weight = styled.div`
   font-size: 0.9rem;
+`;
+
+const Category = styled.div`
+  font-size: 1rem;
+  text-transform: uppercase;
 `;
 
 const Unit = styled.div`
@@ -45,15 +56,24 @@ export default function CardsSection({ sortedData }) {
   return (
     <Cards>
       {sortedData?.map(item => (
+
         <Card key={item.node.id}>
+
+        <img src={item.node.thumbnail?.url} alt={item.node.thumbnail?.alt}></img> 
          
          <Name>{item.node.name}</Name>
 
-         <WeightWrapper>
-            <Weight>{item.node.weight?.value}</Weight>
+         <Category>{item.node.category?.name}</Category>
+
+        <PriceWeightWrapper>
+          <div>£{item.node.pricing.priceRange.stop.gross?.amount.toFixed(2)}</div>
+
+          <WeightWrapper>
+            <Weight>{item.node.weight?.value.toFixed(2)}</Weight>
             <Unit>{item.node.weight?.unit}</Unit>
           </WeightWrapper>
-          
+        </PriceWeightWrapper>
+         
         </Card>
       ))}
     </Cards>
