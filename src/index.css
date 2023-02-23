@@ -37,16 +37,16 @@ img {
 ***/
 
 :root {
-  --navy: #05112A;
-  --dark-blue: #293345;
-  --off-white: #efefef;
+  --white: #ffffff;
+  --black: #111111;
+  --light-grey: #f4f2f4;
+  --light-blue: #69d5e9;
+  --pink: #f554a7;
 }
 
 body {
-  background: var(--dark-blue);
-  color: var(--off-white);
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  background: var(--white);
+  color: var(--black);
+  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
