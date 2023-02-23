@@ -5,7 +5,7 @@ import Container from './components/container';
 
 export const allProducts = gql`
   query Products {
-    products(first: 1, channel: "uk") {
+    products(first: 10, channel: "uk") {
       edges {
         node {
           id

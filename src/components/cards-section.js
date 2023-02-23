@@ -15,7 +15,7 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   gap: 30px;
-  padding: 40px 55px;
+  padding: 20px 40px 45px;
   border-radius: 8px;
   background: var(--light-grey);
 `;
@@ -24,6 +24,10 @@ const Name = styled.div`
   font-size: 2rem;
   text-transform: uppercase;
   font-family: 'Covered By Your Grace', cursive;
+`;
+
+const Description = styled.div`
+  /* border: 1px solid red; */
 `;
 
 const PriceWeightWrapper = styled.div`
@@ -65,13 +69,17 @@ export default function CardsSection({ sortedData }) {
 
          <Category>{item.node.category?.name}</Category>
 
+         <Description>{item.node?.seoDescription}</Description>
+
         <PriceWeightWrapper>
+
           <div>£{item.node.pricing.priceRange.stop.gross?.amount.toFixed(2)}</div>
 
           <WeightWrapper>
             <Weight>{item.node.weight?.value.toFixed(2)}</Weight>
             <Unit>{item.node.weight?.unit}</Unit>
           </WeightWrapper>
+          
         </PriceWeightWrapper>
          
         </Card>
