@@ -10,12 +10,10 @@ export const allProducts = gql`
         node {
           name
           id
-          slug
-          description
-          category {
-            name
-          }
-          rating
+          weight {
+            value
+            unit
+          }            
         }
       }
     }
