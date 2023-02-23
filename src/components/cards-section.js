@@ -18,6 +18,10 @@ const Card = styled.div`
   padding: 20px 40px 45px;
   border-radius: 8px;
   background: var(--light-grey);
+  &:hover, &:active, &:focus {
+    background: var(--pink);
+    color: var(--white);
+  }
 `;
 
 const Name = styled.div`
@@ -67,7 +71,7 @@ export default function CardsSection({ sortedData }) {
          
          <Name>{item.node.name}</Name>
 
-         <Category>{item.node.category?.name}</Category>
+         {/* <Category>{item.node.category?.name}</Category>
 
          <Description>{item.node?.seoDescription}</Description>
 
@@ -79,8 +83,8 @@ export default function CardsSection({ sortedData }) {
             <Weight>{item.node.weight?.value.toFixed(2)}</Weight>
             <Unit>{item.node.weight?.unit}</Unit>
           </WeightWrapper>
-          
-        </PriceWeightWrapper>
+
+        </PriceWeightWrapper> */}
          
         </Card>
       ))}
