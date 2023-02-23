@@ -1,6 +1,7 @@
 import { useQuery, gql } from '@apollo/client';
-import styled from 'styled-components';
-import { StyledContainer } from './SharedStyles';
+import CardsSection from './components/cards-section';
+import Header from './components/header';
+import Container from './components/container';
 
 export const allProducts = gql`
   query Products {
@@ -21,13 +22,6 @@ export const allProducts = gql`
   }
 `;
 
-const Card = styled.div`
-  margin: 20px auto;
-`;
-
-const Text = styled.div`
-  margin: 10px;
-`;
 
 function App() {
   const { loading, error, data } = useQuery(allProducts);
@@ -40,18 +34,12 @@ function App() {
   console.log(sortedData)
 
   return (
-    <StyledContainer> 
+    <Container> 
 
-      <h1>Products</h1>
+      <Header />
+      <CardsSection sortedData={sortedData}/>
 
-      {sortedData?.map(item => (
-        <Card key={item.node.id}>
-          <Text>{item.node.name}</Text>
-          <Text>{item.node.rating}</Text>
-        </Card>
-      ))}
-
-    </StyledContainer>
+    </Container>
   );
 }
 
