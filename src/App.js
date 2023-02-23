@@ -1,5 +1,6 @@
 import { useQuery, gql } from '@apollo/client';
 import styled from 'styled-components';
+import { StyledContainer } from './SharedStyles';
 
 export const allProducts = gql`
   query Products {
@@ -39,7 +40,7 @@ function App() {
   console.log(sortedData)
 
   return (
-    <div className="container"> 
+    <StyledContainer> 
 
       <h1>Products</h1>
 
@@ -50,7 +51,7 @@ function App() {
         </Card>
       ))}
 
-    </div>
+    </StyledContainer>
   );
 }
 
