@@ -149,8 +149,6 @@ export default function CardsSection({ sortedData }) {
                 </WeightWrapper>
               </PriceWeightWrapper>
               
-
-            <div>Test</div>
           </FeaturedCard>
         </>
       }
