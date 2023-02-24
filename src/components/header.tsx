@@ -3,7 +3,10 @@ import styled from 'styled-components';
 const LogoWrapper = styled.div`
   display: flex;
   justify-content: center;
-  height: 60px;
+  height: 40px;
+  @media (min-width: 600px) {
+    height: 60px;
+  }
 `;
 
 const Header = () => {
