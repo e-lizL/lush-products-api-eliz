@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
-const Heading = styled.div`
-  text-align: center;
-  font-size: 2rem;
-  height: 100px;
+const LogoWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  height: 60px;
 `;
 
 const Header = () => {
   return (
-    <Heading>Products</Heading>
+    <LogoWrapper>
+    <img alt="LUSH" src="/Lush_logo_logotype.png"></img>
+  </LogoWrapper>
   )
 }
 

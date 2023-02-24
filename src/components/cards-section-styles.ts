@@ -3,7 +3,7 @@ import styled from 'styled-components';
 const breakpoint = "600px";
 
 const Cards = styled.div`
-  margin: 0 auto 50px;
+  margin: 50px auto 50px;
   display: grid;
   gap: 20px;
   grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
