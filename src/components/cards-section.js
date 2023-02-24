@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import styled from 'styled-components';
 
+const breakpoint = "600px";
+
 const Cards = styled.div`
   margin: 0 auto 50px;
   display: grid;
@@ -22,6 +24,31 @@ const Card = styled.div`
   &:hover, &:active, &:focus {
     background: var(--pink);
     color: var(--white);
+  }
+`;
+
+const FeaturedCard = styled.div`
+  background: white;
+  border-radius: 10px;
+  padding: 25px 15px;
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  @media (min-width: ${ breakpoint }) {
+    padding: 40px;
+  }
+  position: fixed;
+  z-index: 99;
+  /* to center card */
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  div {
+    &:hover, &:active, &:focus {
+      background: var(--white);
+      color: var(--black);
+    }
   }
 `;
 
@@ -47,6 +74,7 @@ const WeightWrapper = styled.div`
 
 const Weight = styled.div`
   font-size: 0.9rem;
+  text-transform: lowercase;
 `;
 
 const Category = styled.div`
@@ -59,18 +87,8 @@ const Unit = styled.div`
   text-transform: lowercase;
 `;
 
-const StyledFeaturedCard = styled.div`
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  width: 30em;
-  height: 36em;
-  margin-top: -18em;
-  margin-left: -18em;
-  z-index: 99;
-`;
 
-const StyledOverlay = styled.div`
+const Overlay = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -105,54 +123,44 @@ export default function CardsSection({ sortedData }) {
     }
     let selection = sortedData.find(item => item.node.id === id);
     selection && setFeaturedCard(selection);
-    console.log(featuredCard)
   };
 
   return (
     <>
       {viewDetails.isOpened && 
         <>
-          <StyledOverlay/>
-          <StyledFeaturedCard>
+          <Overlay/>
+          <FeaturedCard>
             <CloseButton onClick={() => setViewDetails({id: 0, isOpened: false})}>
               X
             </CloseButton>
 
-            <Card >
+           
               <img src={featuredCard.node.thumbnail?.url} alt={featuredCard.node.thumbnail?.alt}></img>
 
               <Name>{featuredCard.node?.name}</Name>
 
               <Category>{featuredCard.node.category?.name}</Category>
-              <Description>{featuredCard.node?.seoDescription}</    Description>
+              <Description>{featuredCard.node?.seoDescription}</Description>
               <PriceWeightWrapper>
                 <div>£{featuredCard.node.pricing.priceRange.stop.gross?.amount.toFixed(2)}</div>
-                <WeightWrapper>
+               <WeightWrapper>
                   <Weight>{featuredCard.node.weight?.value.toFixed(2)}</Weight>
                   <Unit>{featuredCard.node.weight?.unit}</Unit>
                 </WeightWrapper>
-             </PriceWeightWrapper>
-            </Card>
+              </PriceWeightWrapper>
+              
 
             <div>Test</div>
-          </StyledFeaturedCard>
+          </FeaturedCard>
         </>
       }
 
-<Cards>
+      <Cards>
         {sortedData?.map(item => (
           <Card key={item.node.id} onClick={() => selectCard(item.node.id)}>
             <img src={item.node.thumbnail?.url} alt={item.node.thumbnail?.alt}></img>
             <Name>{item.node.name}</Name>
-            <Category>{item.node.category?.name}</Category>
-            <Description>{item.node?.seoDescription}</Description>
-            <PriceWeightWrapper>
-              <div>£{item.node.pricing.priceRange.stop.gross?.amount.toFixed(2)}</div>
-              <WeightWrapper>
-                <Weight>{item.node.weight?.value.toFixed(2)}</Weight>
-                <Unit>{item.node.weight?.unit}</Unit>
-              </WeightWrapper>
-            </PriceWeightWrapper>
           </Card>
         ))}
       </Cards>
