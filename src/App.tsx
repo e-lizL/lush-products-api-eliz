@@ -22,9 +22,6 @@ export const allProducts = gql`
             name
           }
           pricing {
-            onSale
-          }
-          pricing {
             priceRange {
               stop {
                 gross {
@@ -33,16 +30,15 @@ export const allProducts = gql`
               }
             }
           }
-          isAvailable
           weight {
             value
-            unit           
+            unit
+          }
+          seoDescription
         }
-        seoDescription
       }
     }
   }
-}
 `;
 
 
@@ -59,7 +55,8 @@ function App() {
   return (
     <Container> 
 
-      <Header />
+      <Header/>
+
       <CardsSection sortedData={sortedData}/>
 
     </Container>

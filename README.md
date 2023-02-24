@@ -1,1 +1,1 @@
-# graphql / apollo server example using Lush products endpoint.
+## graphql / apollo server example using Lush products endpoint.

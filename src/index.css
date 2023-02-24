@@ -2,6 +2,7 @@
     Fonts
 ***/
 @import url('https://fonts.googleapis.com/css2?family=Covered+By+Your+Grace&display=swap');
+ 
 
 /***
     CSS Reset 
@@ -41,6 +42,7 @@ img {
     CSS variables / basic colours, fonts etc
 ***/
 
+/* Palette */
 :root {
   --white: #ffffff;
   --black: #111111;
@@ -48,6 +50,7 @@ img {
   --light-blue: #69d5e9;
   --pink: #f554a7;
 }
+
 
 body {
   background: var(--white);
