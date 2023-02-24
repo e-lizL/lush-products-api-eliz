@@ -118,12 +118,28 @@ export default function CardsSection({ sortedData }) {
               X
             </CloseButton>
 
+            <Card >
+              <img src={featuredCard.node.thumbnail?.url} alt={featuredCard.node.thumbnail?.alt}></img>
+
+              <Name>{featuredCard.node?.name}</Name>
+
+              <Category>{featuredCard.node.category?.name}</Category>
+              <Description>{featuredCard.node?.seoDescription}</    Description>
+              <PriceWeightWrapper>
+                <div>£{featuredCard.node.pricing.priceRange.stop.gross?.amount.toFixed(2)}</div>
+                <WeightWrapper>
+                  <Weight>{featuredCard.node.weight?.value.toFixed(2)}</Weight>
+                  <Unit>{featuredCard.node.weight?.unit}</Unit>
+                </WeightWrapper>
+             </PriceWeightWrapper>
+            </Card>
+
             <div>Test</div>
           </StyledFeaturedCard>
         </>
       }
 
-      <Cards>
+<Cards>
         {sortedData?.map(item => (
           <Card key={item.node.id} onClick={() => selectCard(item.node.id)}>
             <img src={item.node.thumbnail?.url} alt={item.node.thumbnail?.alt}></img>
@@ -143,6 +159,7 @@ export default function CardsSection({ sortedData }) {
     </>
   )
 }
+   
 
          
      
