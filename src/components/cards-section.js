@@ -30,7 +30,7 @@ const Card = styled.div`
 const FeaturedCard = styled.div`
   background: white;
   border-radius: 10px;
-  padding: 25px 15px;
+  padding: 15px;
   display: flex;
   gap: 30px;
   flex-direction: column;
@@ -40,7 +40,6 @@ const FeaturedCard = styled.div`
   position: fixed;
   z-index: 99;
   /* to center card */
-  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
