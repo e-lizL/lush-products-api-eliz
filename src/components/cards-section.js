@@ -58,33 +58,35 @@ const Unit = styled.div`
   text-transform: lowercase;
 `;
 
-
+function chooseFeatured() {
+  console.log("featured")
+}
 
 export default function CardsSection({ sortedData }) {
   return (
     <Cards>
       {sortedData?.map(item => (
 
-        <Card key={item.node.id}>
+        <Card key={item.node.id} onClick={() => chooseFeatured()}>
 
-        <img src={item.node.thumbnail?.url} alt={item.node.thumbnail?.alt}></img> 
+          <img src={item.node.thumbnail?.url} alt={item.node.thumbnail?.alt}></img> 
          
-         <Name>{item.node.name}</Name>
+          <Name>{item.node.name}</Name>
 
-         {/* <Category>{item.node.category?.name}</Category>
+          <Category>{item.node.category?.name}</Category>
 
-         <Description>{item.node?.seoDescription}</Description>
+          <Description>{item.node?.seoDescription}</Description>
 
-        <PriceWeightWrapper>
+          <PriceWeightWrapper>
 
-          <div>£{item.node.pricing.priceRange.stop.gross?.amount.toFixed(2)}</div>
+            <div>£{item.node.pricing.priceRange.stop.gross?.amount.toFixed(2)}</div>
 
-          <WeightWrapper>
-            <Weight>{item.node.weight?.value.toFixed(2)}</Weight>
-            <Unit>{item.node.weight?.unit}</Unit>
-          </WeightWrapper>
+            <WeightWrapper>
+              <Weight>{item.node.weight?.value.toFixed(2)}</Weight>
+              <Unit>{item.node.weight?.unit}</Unit>
+            </WeightWrapper>
 
-        </PriceWeightWrapper> */}
+          </PriceWeightWrapper>
          
         </Card>
       ))}
