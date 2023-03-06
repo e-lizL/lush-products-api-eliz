@@ -12,8 +12,8 @@ const LogoWrapper = styled.div`
 const Header = () => {
   return (
     <LogoWrapper>
-    <img alt="LUSH" src="/Lush_logo_logotype.png"></img>
-  </LogoWrapper>
+      <img alt="LUSH" src="/Lush_logo_logotype.png"></img>
+    </LogoWrapper>
   )
 }
 
