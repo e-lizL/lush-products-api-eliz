@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import { Ilayout } from '../interfaces';
+import Header from './header';
 
 const Styledlayout = styled.div`
   width: 98%;
@@ -7,8 +8,11 @@ const Styledlayout = styled.div`
   margin: 50px auto;
 `;
 
-export default function layout({ children }: Ilayout) {
+export default function Layout({ children }: Ilayout) {
   return (
-    <Styledlayout>{children}</Styledlayout>
+    <Styledlayout>
+      <Header />
+      {children}
+    </Styledlayout>
   )
 }
