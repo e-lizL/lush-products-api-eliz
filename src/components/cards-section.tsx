@@ -22,15 +22,14 @@ export default function CardsSection({ sortedData }: ISortedData) {
     isOpened: false,
   });
 
+  //function to select featured card
   const selectCard = (id: number) => {
-    if (!viewDetails.isOpened) {
-      setViewDetails({
-        id: id,
-        isOpened: true,
-      });
-    }
+    setViewDetails({
+      id: id,
+      isOpened: true,
+    });
     let selection = sortedData.find((item: IProduct) => item.node.id === id);
-    selection && setFeaturedCard(selection);
+    setFeaturedCard(selection);
   };
 
   return (
