@@ -1,5 +1,5 @@
 
-export interface IContainer {
+export interface Ilayout {
   children: React.ReactNode;
 }
 

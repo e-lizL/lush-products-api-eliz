@@ -1,7 +1,7 @@
 import { useQuery, gql } from '@apollo/client';
 import CardsSection from './components/cards-section';
 import Header from './components/header';
-import Container from './components/container';
+import layout from './components/layout';
 
 export const allProducts = gql`
   query Products {
@@ -53,13 +53,13 @@ function App() {
   console.log(sortedData)
 
   return (
-    <Container> 
+    <layout> 
 
       <Header/>
 
       <CardsSection sortedData={sortedData}/>
 
-    </Container>
+    </layout>
   );
 }
 
