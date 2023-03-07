@@ -17,28 +17,22 @@ import {
 
 export default function CardsSection({ sortedData }: ISortedData) {
   const [featuredCard, setFeaturedCard] = useState<IProduct>();
-  const [viewDetails, setViewDetails] = useState({
-    id: 0,
-    isOpened: false,
-  });
+  const [viewDetails, setViewDetails] = useState(false);
 
   //function to select featured card
   const selectCard = (id: number) => {
-    setViewDetails({
-      id: id,
-      isOpened: true,
-    });
+    setViewDetails(true);
     let selection = sortedData.find((item: IProduct) => item.node.id === id);
     setFeaturedCard(selection);
   };
 
   return (
     <>
-      {viewDetails.isOpened && 
+      {viewDetails && 
         <>
           <Overlay/>
           <FeaturedCard>
-            <CloseButton onClick={() => setViewDetails({id: 0, isOpened: false})}>
+            <CloseButton onClick={() => setViewDetails(false)}>
               X
             </CloseButton>
 
